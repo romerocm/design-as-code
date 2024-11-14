@@ -65,7 +65,7 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
             <iframe
               ref={iframeRef}
               title="Design Preview"
-              className="w-full h-full"
+              className="w-full h-full bg-white"
               sandbox="allow-scripts"
               srcDoc={
                 previewCode ||

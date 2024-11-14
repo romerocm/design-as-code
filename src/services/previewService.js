@@ -10,6 +10,14 @@ export const createPreview = (component) => {
         <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script>
+          tailwind.config = {
+            darkMode: 'class',
+            theme: {
+              extend: {}
+            }
+          }
+        </script>
         <style>
           body { margin: 0; padding: 1rem; background: transparent; }
           #preview-root { width: 100%; min-height: 100vh; }
