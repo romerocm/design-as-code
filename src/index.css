@@ -12,7 +12,7 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
-  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  @apply bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200;
 }
 
 #root {
@@ -33,5 +33,5 @@ button, input, textarea {
 
 /* Ensure consistent panel colors */
 [role="button"] {
-  @apply text-gray-900 dark:text-gray-100;
+  @apply text-gray-700 dark:text-gray-200;
 }
