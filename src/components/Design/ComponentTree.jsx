@@ -85,12 +85,12 @@ const ComponentTree = ({
         >
           {hasChildren ? (
             isExpanded ? (
-              <ChevronDown className="w-4 h-4 text-gray-500" />
+              <ChevronDown className="w-4 h-4 text-gray-600 dark:text-gray-300" />
             ) : (
-              <ChevronRight className="w-4 h-4 text-gray-500" />
+              <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" />
             )
           ) : (
-            <Box className="w-4 h-4 text-gray-500" />
+            <Box className="w-4 h-4 text-gray-600 dark:text-gray-300" />
           )}
           <span className="text-sm dark:text-gray-100">{node.name}</span>
 
@@ -102,14 +102,14 @@ const ComponentTree = ({
                 handleAddComponent(node.id);
               }}
             >
-              <Plus className="w-3 h-3" />
+              <Plus className="w-3 h-3 text-gray-600 dark:text-gray-300" />
             </button>
             {node.id !== "root" && (
               <button
                 className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
                 onClick={(e) => handleDeleteComponent(node.id, e)}
               >
-                <Trash2 className="w-3 h-3" />
+                <Trash2 className="w-3 h-3 text-gray-600 dark:text-gray-300" />
               </button>
             )}
           </div>
@@ -131,7 +131,7 @@ const ComponentTree = ({
           className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
           onClick={() => handleAddComponent("root")}
         >
-          <Plus className="w-4 h-4" />
+          <Plus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
         </button>
       </div>
       <div className="p-2">
