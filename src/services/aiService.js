@@ -1,11 +1,14 @@
 // src/services/aiService.js
 const DESIGN_PROMPT = `You are a design-to-code expert. Analyze the design requirements and generate a React component.
 Use only core Tailwind CSS classes (no arbitrary values). Ensure the component is:
-1. Responsive
-2. Accessible
+1. Responsive (mobile-first approach)
+2. Accessible (ARIA attributes, semantic HTML)
 3. Following React best practices
+4. Using proper TypeScript types
+5. Including basic error handling
 
-Return the component code without any explanation or markdown formatting.`;
+Return only the component code as a complete functional component, without any explanation or markdown.
+Include proper imports and export statement.`;
 
 export const generateComponent = async (designInput) => {
   try {
@@ -33,7 +36,12 @@ export const generateComponent = async (designInput) => {
     }
 
     const data = await response.json();
-    const generatedCode = data.content[0].text;
+    const generatedCode = data.content[0].text.trim();
+    
+    // Basic validation of the generated code
+    if (!generatedCode.includes('export') || !generatedCode.includes('React')) {
+      throw new Error('Generated code does not appear to be a valid React component');
+    }
 
     return {
       success: true,
