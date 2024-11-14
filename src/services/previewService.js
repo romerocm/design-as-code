@@ -49,6 +49,27 @@ export const createPreview = (component) => {
       <body>
         <div id="preview-root"></div>
         <script type="text/babel">
+          // Sync dark mode with parent
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.attributeName === 'class') {
+                document.documentElement.classList.toggle('dark', 
+                  window.parent.document.documentElement.classList.contains('dark')
+                );
+              }
+            });
+          });
+          
+          observer.observe(window.parent.document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+          });
+
+          // Initial dark mode sync
+          document.documentElement.classList.toggle('dark',
+            window.parent.document.documentElement.classList.contains('dark')
+          );
+
           try {
             const PreviewComponent = ${component};
             const root = ReactDOM.createRoot(document.getElementById('preview-root'));

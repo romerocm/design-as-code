@@ -1,6 +1,6 @@
 // src/components/Design/DesignCanvas.jsx
 import React, { useRef, useEffect } from "react";
-import { Maximize2, RefreshCw, Loader } from "lucide-react";
+import { Maximize2, RefreshCw, Loader, Moon, Sun } from "lucide-react";
 
 const DesignCanvas = ({ previewCode, isGenerating, error }) => {
   const iframeRef = useRef(null);
@@ -33,6 +33,14 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
             disabled={isGenerating}
           >
             <RefreshCw className="w-5 h-5" />
+          </button>
+          <button 
+            onClick={() => document.documentElement.classList.toggle('dark')}
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+            aria-label="Toggle dark mode"
+          >
+            <Sun className="w-5 h-5 hidden dark:block" />
+            <Moon className="w-5 h-5 block dark:hidden" />
           </button>
           <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
             <Maximize2 className="w-5 h-5" />
