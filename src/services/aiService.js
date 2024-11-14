@@ -38,16 +38,27 @@ export const generateComponent = async (designInput) => {
     const data = await response.json();
     const generatedCode = data.content[0].text.trim();
     
-    // Basic validation of the generated code
-    if (!generatedCode.includes('export') || !generatedCode.includes('React')) {
-      throw new Error('Generated code does not appear to be a valid React component');
+    // Enhanced validation
+    const validationResult = validateComponent(generatedCode);
+    if (validationResult.valid === false) {
+      throw new Error(`Invalid component: ${validationResult.error}`);
     }
+
+    // Clean up the code
+    const cleanedCode = generatedCode
+      .replace(/```(jsx|tsx|javascript|js)?\n/g, '')
+      .replace(/```$/g, '')
+      .trim();
 
     return {
       success: true,
       data: {
-        code: generatedCode,
-        preview: generatedCode, // This will be processed by previewService
+        code: cleanedCode,
+        preview: cleanedCode,
+        metadata: {
+          timestamp: new Date().toISOString(),
+          model: "claude-3-opus-20240229",
+        }
       },
     };
   } catch (error) {

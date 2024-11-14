@@ -43,14 +43,21 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
       {/* Preview Area */}
       <div className="flex-1 p-4">
         {isGenerating ? (
-          <div className="w-full h-full flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+          <div className="w-full h-full flex flex-col gap-2 items-center justify-center bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700">
             <Loader className="w-8 h-8 animate-spin text-blue-500" />
+            <p className="text-sm text-gray-500 dark:text-gray-400">Generating preview...</p>
           </div>
         ) : error ? (
           <div className="w-full h-full flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700">
-            <div className="text-red-500 text-center p-4">
-              <p className="font-medium">Error Preview</p>
-              <p className="text-sm mt-2">{error}</p>
+            <div className="text-red-500 text-center p-4 max-w-md">
+              <p className="font-medium">Preview Error</p>
+              <p className="text-sm mt-2 break-words">{error}</p>
+              <button 
+                onClick={handleRefresh}
+                className="mt-4 px-4 py-2 bg-red-100 dark:bg-red-900 rounded-md text-sm hover:bg-red-200 dark:hover:bg-red-800"
+              >
+                Try Again
+              </button>
             </div>
           </div>
         ) : (

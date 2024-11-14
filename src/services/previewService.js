@@ -11,20 +11,26 @@ export const createPreview = (component) => {
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <style>
-          body { margin: 0; padding: 1rem; }
+          body { margin: 0; padding: 1rem; background: transparent; }
           #preview-root { width: 100%; min-height: 100vh; }
+          .preview-error { color: #ef4444; padding: 1rem; }
         </style>
       </head>
       <body>
         <div id="preview-root"></div>
         <script type="text/babel">
-          const PreviewComponent = ${component};
-          ReactDOM.render(
-            <React.StrictMode>
-              <PreviewComponent />
-            </React.StrictMode>,
-            document.getElementById('preview-root')
-          );
+          try {
+            const PreviewComponent = ${component};
+            const root = ReactDOM.createRoot(document.getElementById('preview-root'));
+            root.render(
+              React.createElement(React.StrictMode, null,
+                React.createElement(PreviewComponent)
+              )
+            );
+          } catch (error) {
+            document.getElementById('preview-root').innerHTML = 
+              '<div class="preview-error">Preview Error: ' + error.message + '</div>';
+          }
         </script>
       </body>
     </html>
