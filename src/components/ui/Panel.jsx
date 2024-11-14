@@ -5,7 +5,7 @@ import { Grip } from "lucide-react";
 const PanelContext = createContext({});
 
 export const Layout = ({ children }) => {
-  return <div className="w-full h-full overflow-hidden">{children}</div>;
+  return <div className="w-full h-full overflow-hidden bg-white dark:bg-gray-900">{children}</div>;
 };
 
 export const PanelGroup = ({ children, direction = "horizontal" }) => {
@@ -50,9 +50,9 @@ export const PanelResizeHandle = () => {
             ? "w-1 cursor-col-resize"
             : "h-1 cursor-row-resize"
         }
-        hover:bg-blue-500 bg-gray-200 dark:bg-gray-700`}
+        hover:bg-blue-500/50 bg-gray-100 dark:bg-gray-800 transition-colors`}
     >
-      <Grip className="w-4 h-4 text-gray-400" />
+      <Grip className="w-4 h-4 text-gray-400 dark:text-gray-600" />
     </div>
   );
 };
