@@ -72,8 +72,12 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
                 `<html><body><div class="flex h-full items-center justify-center text-gray-500">Preview will appear here</div></body></html>`
               }
               onLoad={(e) => {
-                if (e.target.contentDocument.body.innerHTML.includes("Preview Error")) {
-                  onError?.("Component failed to render");
+                try {
+                  if (e.target.contentDocument?.body.innerHTML.includes("Preview Error")) {
+                    error?.("Component failed to render");
+                  }
+                } catch (err) {
+                  console.error("Error checking iframe content:", err);
                 }
               }}
             />
