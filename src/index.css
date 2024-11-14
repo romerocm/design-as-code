@@ -12,6 +12,7 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
 
 #root {
@@ -23,4 +24,14 @@ body,
 
 * {
   box-sizing: border-box;
+}
+
+/* Reset default styles */
+button, input, textarea {
+  @apply bg-transparent;
+}
+
+/* Ensure consistent panel colors */
+[role="button"] {
+  @apply text-gray-900 dark:text-gray-100;
 }
