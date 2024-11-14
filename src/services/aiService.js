@@ -1,4 +1,6 @@
 // src/services/aiService.js
+import { validateComponent } from './previewService';
+
 const DESIGN_PROMPT = `You are a design-to-code expert. Analyze the design requirements and generate a React component.
 Use only core Tailwind CSS classes (no arbitrary values). Ensure the component is:
 1. Responsive (mobile-first approach)

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { Maximize2, RefreshCw, Loader, Moon, Sun } from "lucide-react";
 
-const DesignCanvas = ({ previewCode, isGenerating, error }) => {
+const DesignCanvas = ({ previewCode, isGenerating, error, onError }) => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
