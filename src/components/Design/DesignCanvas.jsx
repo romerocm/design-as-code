@@ -22,9 +22,9 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col h-full bg-white dark:bg-gray-900">
       {/* Preview Header */}
-      <div className="border-b dark:border-gray-700 p-4 flex justify-between items-center">
+      <div className="border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 flex justify-between items-center">
         <h2 className="text-lg font-semibold dark:text-gray-100">Preview</h2>
         <div className="flex gap-2">
           <button

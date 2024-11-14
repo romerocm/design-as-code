@@ -114,8 +114,8 @@ const ComponentTree = ({
   };
 
   return (
-    <div className="h-full bg-gray-50 dark:bg-gray-900 border-r dark:border-gray-700">
-      <div className="p-4 border-b dark:border-gray-700 flex justify-between items-center">
+    <div className="h-full bg-white dark:bg-gray-900 border-r dark:border-gray-700">
+      <div className="p-4 border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex justify-between items-center">
         <h2 className="text-lg font-semibold dark:text-gray-100">Components</h2>
         <button
           className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
