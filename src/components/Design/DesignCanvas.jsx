@@ -65,7 +65,7 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
             <iframe
               ref={iframeRef}
               title="Design Preview"
-              className="w-full h-full bg-white"
+              className="w-full h-full bg-white dark:bg-gray-900"
               sandbox="allow-scripts"
               srcDoc={
                 previewCode ||
@@ -74,7 +74,7 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
               onLoad={(e) => {
                 try {
                   if (e.target.contentDocument?.body.innerHTML.includes("Preview Error")) {
-                    error?.("Component failed to render");
+                    onError?.("Component failed to render");
                   }
                 } catch (err) {
                   console.error("Error checking iframe content:", err);

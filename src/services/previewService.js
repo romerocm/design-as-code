@@ -19,8 +19,23 @@ export const createPreview = (component) => {
           }
         </script>
         <style>
-          body { margin: 0; padding: 1rem; background: transparent; }
-          #preview-root { width: 100%; min-height: 100vh; }
+          body { 
+            margin: 0; 
+            padding: 1rem; 
+            background: transparent;
+            color-scheme: light dark;
+          }
+          #preview-root { 
+            width: 100%; 
+            min-height: 100vh;
+            color: inherit;
+          }
+          @media (prefers-color-scheme: dark) {
+            body {
+              background: #1f2937;
+              color: #f3f4f6;
+            }
+          }
           .preview-error { 
             color: #ef4444; 
             padding: 1rem;
