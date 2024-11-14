@@ -24,11 +24,16 @@ export const createPreview = (component) => {
             padding: 1rem; 
             background: transparent;
             color-scheme: light dark;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
           }
           #preview-root { 
-            width: 100%; 
-            min-height: 100vh;
+            flex: 1;
+            width: 100%;
             color: inherit;
+            display: flex;
+            flex-direction: column;
           }
           @media (prefers-color-scheme: dark) {
             body {

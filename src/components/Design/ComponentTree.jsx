@@ -124,8 +124,8 @@ const ComponentTree = ({
   };
 
   return (
-    <div className="h-full bg-white dark:bg-gray-900 border-r dark:border-gray-700">
-      <div className="p-4 border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex justify-between items-center">
+    <div className="flex flex-col h-full bg-white dark:bg-gray-900 border-r dark:border-gray-700">
+      <div className="flex-none p-4 border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex justify-between items-center">
         <h2 className="text-lg font-semibold dark:text-gray-100">Components</h2>
         <button
           className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
@@ -134,7 +134,7 @@ const ComponentTree = ({
           <Plus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
         </button>
       </div>
-      <div className="p-2">
+      <div className="flex-1 overflow-y-auto p-2">
         {componentStructure.map((component) => renderNode(component))}
       </div>
     </div>

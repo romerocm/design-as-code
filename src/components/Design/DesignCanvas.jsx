@@ -69,12 +69,12 @@ const DesignCanvas = ({ previewCode, isGenerating, error, onError }) => {
             </div>
           </div>
         ) : (
-          <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 overflow-hidden">
+          <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 overflow-hidden relative">
             <iframe
               ref={iframeRef}
               title="Design Preview"
-              className="w-full h-full bg-white dark:bg-gray-900"
-              sandbox="allow-scripts"
+              className="w-full h-full border-0 absolute inset-0"
+              sandbox="allow-scripts allow-same-origin"
               srcDoc={
                 previewCode ||
                 `<html><body><div class="flex h-full items-center justify-center text-gray-500">Preview will appear here</div></body></html>`
