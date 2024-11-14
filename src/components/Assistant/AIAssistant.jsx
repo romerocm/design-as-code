@@ -84,12 +84,12 @@ const AIAssistant = ({
               )}
             </div>
             <div
-              className={`max-w-[80%] rounded-lg p-3 ${
+              className={`max-w-[80%] rounded-lg p-3 break-words ${
                 message.type === "user"
                   ? "bg-blue-500 text-white"
                   : message.isError
                   ? "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-100"
-                  : "bg-white dark:bg-gray-800 dark:text-gray-100 shadow"
+                  : "bg-white dark:bg-gray-800 dark:text-gray-100 shadow-sm ring-1 ring-gray-900/5"
               }`}
             >
               {message.content}

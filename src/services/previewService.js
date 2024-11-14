@@ -21,7 +21,14 @@ export const createPreview = (component) => {
         <style>
           body { margin: 0; padding: 1rem; background: transparent; }
           #preview-root { width: 100%; min-height: 100vh; }
-          .preview-error { color: #ef4444; padding: 1rem; }
+          .preview-error { 
+            color: #ef4444; 
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px solid #fee2e2;
+            border-radius: 0.5rem;
+            background: #fef2f2;
+          }
         </style>
       </head>
       <body>

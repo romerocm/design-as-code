@@ -69,8 +69,13 @@ const DesignCanvas = ({ previewCode, isGenerating, error }) => {
               sandbox="allow-scripts"
               srcDoc={
                 previewCode ||
-                "<html><body><div>Preview will appear here</div></body></html>"
+                `<html><body><div class="flex h-full items-center justify-center text-gray-500">Preview will appear here</div></body></html>`
               }
+              onLoad={(e) => {
+                if (e.target.contentDocument.body.innerHTML.includes("Preview Error")) {
+                  onError?.("Component failed to render");
+                }
+              }}
             />
           </div>
         )}

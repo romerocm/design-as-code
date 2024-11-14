@@ -64,9 +64,19 @@ const ComponentTree = ({
     return (
       <div key={node.id} className="select-none">
         <div
-          className={`flex items-center gap-1 px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer ${
-            isSelected ? "bg-blue-50 dark:bg-blue-900" : ""
+          className={`flex items-center gap-1 px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors ${
+            isSelected ? "bg-blue-50 dark:bg-blue-900 ring-1 ring-blue-500/10" : ""
           }`}
+          role="button"
+          tabIndex={0}
+          aria-selected={isSelected}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleNode(node.id);
+              onComponentSelect?.(node.id);
+            }
+          }}
           style={{ paddingLeft: `${level * 12 + 8}px` }}
           onClick={() => {
             toggleNode(node.id);
