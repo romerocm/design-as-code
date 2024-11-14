@@ -9,7 +9,7 @@ import {
   Layout,
   Type,
   BoxSelect,
-  Spacing,
+  Ruler,
 } from "lucide-react";
 
 const DesignTools = () => {
@@ -27,9 +27,9 @@ const DesignTools = () => {
       { name: "Text", icon: Type },
     ],
     spacing: [
-      { name: "Margin", icon: Spacing },
-      { name: "Padding", icon: Spacing },
-      { name: "Gap", icon: Spacing },
+      { name: "Margin", icon: Ruler },
+      { name: "Padding", icon: Ruler },
+      { name: "Gap", icon: Ruler },
     ],
     styles: [
       { name: "Colors", icon: Palette },
